@@ -14,6 +14,7 @@ def list_files(in_path):
     mask_files = []
     gt_files = []
     for (dirpath, dirnames, filenames) in os.walk(in_path):
+        print(in_path, filenames)
         for file in filenames:
             filename, ext = os.path.splitext(file)
             ext = str.lower(ext)
