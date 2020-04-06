@@ -135,6 +135,9 @@ def test(modelpara, pretrained=True):
         image = imgproc.loadImage(image_path)
 
         bboxes, polys, score_text = test_net(net, image, args.text_threshold, args.link_threshold, args.low_text, args.cuda, args.poly)
+
+        print("Found boxes:", len(bboxes), len(polys))
+
         # save score text
         filename, file_ext = os.path.splitext(os.path.basename(image_path))
         mask_file = result_folder + "/res_" + filename + '_mask.jpg'
