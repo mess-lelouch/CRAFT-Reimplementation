@@ -58,9 +58,9 @@ args = parser.parse_args()
 
 
 """ For test images in a folder """
-image_list, _, _ = file_utils.get_files('/data/CRAFT-pytorch/test')
+image_list, _, _ = file_utils.get_files('./tests')
+result_folder = './results'
 
-result_folder = '/data/CRAFT-pytorch/result/'
 if not os.path.isdir(result_folder):
     os.mkdir(result_folder)
 
@@ -143,3 +143,9 @@ def test(modelpara):
         file_utils.saveResult(image_path, image[:,:,::-1], polys, dirname=result_folder)
 
     print("elapsed time : {}s".format(time.time() - t))
+
+
+if __name__ == '__main__':
+    trained_model = args.trained_model
+
+    test(trained_model)
